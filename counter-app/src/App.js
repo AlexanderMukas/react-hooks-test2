@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useDebugValue} from 'react';
+import React, {useState,useEffect} from 'react';
 
 
 function App() {
@@ -11,21 +11,28 @@ function App() {
     x: 0, y: 0
   });
 
+
   useEffect( ()=>{
     fetch(`https://jsonplaceholder.typicode.com/${type}/`)
       .then(response => response.json())
       .then(json => setData(json));
   }, [type])
 
-  useEffect( () => {
-    window.addEventListener('mousemove', event => {
-      setPos({
-        x: event.clientX,
-        y: event.clientY
-      });
-    });
 
-  }, [pos]);
+  const mouseMoveHandler = event => {
+    setPos({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+  useEffect( () => {
+    console.log('ComponentsDidMount');
+    window.addEventListener('mousemove', mouseMoveHandler);
+
+    return () => {
+      window.removeEventListener('mousemove', mouseMoveHandler);
+    }
+  }, );
 
   return (
     <div>
@@ -34,7 +41,7 @@ function App() {
       <button onClick={() => setType('todos')}>Todos</button>
       <button onClick={() => setType('posts')}>Posts</button>
 
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      {/* { <pre>{JSON.stringify(data, null, 2)}</pre> } */}
       <pre>{JSON.stringify(pos, null, 2)}</pre>
     </div>
   );
