@@ -4,11 +4,30 @@ function App() {
   // hook: useState()
   const [counter, setCounter] = useState( 0 )
   
+  // const addCounter = (counter) => { setCounter(counter++)};
+  // const delCounter = (counter) => { setCounter(counter--)};
+
+  function increment() {
+    setCounter(counter+1);
+  };
+  function decrement() {
+    setCounter(counter-1);
+  };
+
+
   return (
     <div>
       <h1>Counter : {counter}</h1>
-      <button className="btn btn-success">Add</button>
-      <button className="btn btn-danger">Delete</button> 
+      <button 
+        className="btn btn-success"
+        onClick={increment}
+      > Add
+      </button>
+      <button 
+        className="btn btn-danger"
+        onClick={decrement}
+      >Delete
+      </button> 
     </div>
   );
 }
