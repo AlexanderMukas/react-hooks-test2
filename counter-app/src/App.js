@@ -7,6 +7,10 @@ function App() {
   return (
     <div>
       <h1>Resource: {type}</h1>
+      <button onClick={() => setType('users')}>Users</button>
+      <button onClick={() => setType('todo')}>Todo</button>
+      <button onClick={() => setType('posts')}>Posts</button>
+
     </div>
   );
 }
