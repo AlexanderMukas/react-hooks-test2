@@ -4,12 +4,10 @@ function App() {
   // hook: useState()
   const [counter, setCounter] = useState( 0 )
   
-  // const addCounter = (counter) => { setCounter(counter++)};
-  // const delCounter = (counter) => { setCounter(counter--)};
-
   function increment() {
     setCounter(counter+1);
   };
+
   function decrement() {
     setCounter(counter-1);
   };
