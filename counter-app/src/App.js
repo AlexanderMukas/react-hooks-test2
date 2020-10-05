@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 
 function App() {
   
@@ -13,8 +13,14 @@ function App() {
     // new Array(9000000).fill().map( element => )
     return num * 2;
   }
-  
-  const computed = complexCompute(number);
+
+  // useMemo!
+  // const computed = complexCompute(number);
+  const computed = useMemo( () => {
+    return complexCompute(number);
+  }, [number]);
+
+
 
   const [colored, setColored] = useState(false);
 
