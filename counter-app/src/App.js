@@ -16,12 +16,17 @@ function App() {
   
   const computed = complexCompute(number);
 
+  const [colored, setColored] = useState(false);
+
+  const styles = {
+    color: colored ? 'darkred' : 'black'
+  };
   return (
     <div>
-      <h1>Calculated property: {computed}</h1>
+      <h1 style={styles}>Calculated property: {computed}</h1>
       <button className="btn btn-success" onClick={() => setNumber(prev => prev+1)}>Add</button>
       <button className="btn btn-danger" onClick={() => setNumber(prev => prev-1)}>Delete</button>
-      
+      <button className="btn btn-warning" onClick={() => setColored(prev => !prev)}>Change</button>
     </div>
   );
 }
