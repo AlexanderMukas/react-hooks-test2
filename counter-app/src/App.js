@@ -32,7 +32,7 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', mouseMoveHandler);
     }
-  }, );
+  }, [] );
 
   return (
     <div>
