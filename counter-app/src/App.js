@@ -11,6 +11,15 @@ function App() {
     color: colored ? 'blue' : 'violet'
   }
 
+  // generation count of elements
+  // from count
+
+  const generateItemsFromAPI = () => {
+    return new Array(count).fill('').map( (element, index) => `Element ${index + 1}`);
+  }
+
+
+
   return (
     <>
       <h1 style={styles}>Count of properties: {count}</h1>
