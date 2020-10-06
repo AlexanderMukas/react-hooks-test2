@@ -5,6 +5,7 @@ export default function ItemsList( {getItems} ) {
     const [items, setItems] = useState([]);
 
     useEffect( () => {
+        console.log('get items call useEffect');
         const newItems = getItems();
         setItems(newItems);
 

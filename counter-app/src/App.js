@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import ItemsList from './ItemsList';
 
 function App() {
@@ -15,9 +15,13 @@ function App() {
   // generation count of elements
   // from count
 
-  const generateItemsFromAPI = () => {
+  // const generateItemsFromAPI = () => {
+  //   return new Array(count).fill('').map( (element, index) => `Element ${index + 1}`);
+  // };
+
+  const generateItemsFromAPI = useCallback( () => {
     return new Array(count).fill('').map( (element, index) => `Element ${index + 1}`);
-  }
+  }, [count]);
 
 
 
